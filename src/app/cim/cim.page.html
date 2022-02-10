@@ -1,9 +1,345 @@
 <ion-header>
+  <ion-buttons>
+    <ion-menu-button menu="main-menu"></ion-menu-button>
+  </ion-buttons>
   <ion-toolbar>
     <ion-title>Control de verificación de armado de cimentación, firme y revenimientos de concreto</ion-title>
   </ion-toolbar>
+  <style>
+    ion-col {
+      border: solid 1px #ddd;
+      padding: 10px;
+    }
+  </style>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2">
+        <ion-label>Fraccionamiento</ion-label>
+      </ion-col>
+      <ion-col size="2">
+        <ion-label>Prototipo</ion-label>
+            <ion-select interface="popover">
+              <ion-select-option value="nes">NES</ion-select-option>
+              <ion-select-option value="n64">Nintendo64</ion-select-option>
+              <ion-select-option value="ps">PlayStation</ion-select-option>
+              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
+              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
+              <ion-select-option value="snes">SNES</ion-select-option>
+            </ion-select>
+      </ion-col>
+      <ion-col size="2">
+        <ion-label>Etapa</ion-label>
+            <ion-select interface="popover">
+              <ion-select-option value="nes">NES</ion-select-option>
+              <ion-select-option value="n64">Nintendo64</ion-select-option>
+              <ion-select-option value="ps">PlayStation</ion-select-option>
+              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
+              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
+              <ion-select-option value="snes">SNES</ion-select-option>
+            </ion-select>
+      </ion-col>
+      <ion-col size="2">
+        <ion-label>MZ</ion-label>
+            <ion-select interface="popover">
+              <ion-select-option value="nes">NES</ion-select-option>
+              <ion-select-option value="n64">Nintendo64</ion-select-option>
+              <ion-select-option value="ps">PlayStation</ion-select-option>
+              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
+              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
+              <ion-select-option value="snes">SNES</ion-select-option>
+            </ion-select>
+      </ion-col>
+      <ion-col size="2">
+        <ion-label>Lote</ion-label>
+            <ion-select interface="popover">
+              <ion-select-option value="nes">NES</ion-select-option>
+              <ion-select-option value="n64">Nintendo64</ion-select-option>
+              <ion-select-option value="ps">PlayStation</ion-select-option>
+              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
+              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
+              <ion-select-option value="snes">SNES</ion-select-option>
+            </ion-select>
+      </ion-col>
+      <ion-col size="2">
+        <ion-label>Fecha</ion-label>
+            <ion-input type="date"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+        <ion-label>Contratista</ion-label>
+            <ion-select interface="popover">
+              <ion-select-option value="nes">NES</ion-select-option>
+              <ion-select-option value="n64">Nintendo64</ion-select-option>
+              <ion-select-option value="ps">PlayStation</ion-select-option>
+              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
+              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
+              <ion-select-option value="snes">SNES</ion-select-option>
+            </ion-select>
+      </ion-col>
+      <ion-col size="4">
+        <ion-label>Supervisor de obra</ion-label>
+            <ion-select interface="popover">
+              <ion-select-option value="nes">NES</ion-select-option>
+              <ion-select-option value="n64">Nintendo64</ion-select-option>
+              <ion-select-option value="ps">PlayStation</ion-select-option>
+              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
+              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
+              <ion-select-option value="snes">SNES</ion-select-option>
+            </ion-select>
+      </ion-col>
+      <ion-col size="4">
+        <ion-label>Residente de obra</ion-label>
+            <ion-select interface="popover">
+              <ion-select-option value="nes">NES</ion-select-option>
+              <ion-select-option value="n64">Nintendo64</ion-select-option>
+              <ion-select-option value="ps">PlayStation</ion-select-option>
+              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
+              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
+              <ion-select-option value="snes">SNES</ion-select-option>
+            </ion-select>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-list lines="full" class="ion-no-margin">
+          <ion-list-header lines="full">
+            <h2>Excavación:</h2>
+          </ion-list-header>
+          <ion-item>
+            <ion-label>Sección minima de tubo de excavación:</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Pendiente minima del 2%</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col size="6">
+        <ion-list lines="full" class="ion-no-margin">
+          <ion-list-header lines="full">
+            <h2>Instalación, sanitaria y eléctrica:</h2>
+          </ion-list-header>
+          <ion-item>
+            <ion-label>Pendiente minima de tubo del 2%</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Alimentación eléctrica</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-list lines="full" class="ion-no-margin">
+          <ion-list-header lines="full">
+            <h2>Registros:</h2>
+          </ion-list-header>
+          <ion-item>
+            <ion-label>Forjado de registros</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Medidas cañas en registros</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Tapas provisionales de resgistros</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Profundidad de nivel de registro</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col size="6">
+        <ion-list lines="full" class="ion-no-margin">
+          <ion-list-header lines="full">
+            <h2>Concreto:</h2>
+          </ion-list-header>
+          <ion-item>
+            <ion-label>Concreto tirado (Obligatorio)</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>f"c el concreto</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Cilindro de prueba a 7 días</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Cilindro de prueba a 14 días</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Cilindro de prueba a 28 días</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-list lines="full" class="ion-no-margin">
+          <ion-list-header lines="full">
+            <h2>Cimbra:</h2>
+          </ion-list-header>
+          <ion-item>
+            <ion-label>Alineación</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Nivelación</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Sujeción</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Colocación de Hule</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Desmoldante</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col size="6">
+        <ion-list lines="full" class="ion-no-margin">
+          <ion-list-header lines="full">
+            <h2>Instalación hidráulica:</h2>
+          </ion-list-header>
+          <ion-item>
+            <ion-label>Ubicación de salidas</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Revisión de conexiones</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Diámetros de tuberia</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Tipo de tuberia</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Prueba hidráulica</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+            <ion-span>INST. GAS</ion-span>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-list-header lines="full">
+          <h2>Cimbra:</h2>
+        </ion-list-header>
+          <ion-list lines="full" class="ion-no-margin">
+            <ion-item>
+              <ion-label>Alineación</ion-label>
+              <ion-checkbox disabled="false"></ion-checkbox>
+              <ion-checkbox disabled="false"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Nivelación</ion-label>
+              <ion-checkbox disabled="false"></ion-checkbox>
+              <ion-checkbox disabled="false"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Sujeción</ion-label>
+              <ion-checkbox disabled="false"></ion-checkbox>
+              <ion-checkbox disabled="false"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Colocación de Hule</ion-label>
+              <ion-checkbox disabled="false"></ion-checkbox>
+              <ion-checkbox disabled="false"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Desmoldante</ion-label>
+              <ion-checkbox disabled="false"></ion-checkbox>
+              <ion-checkbox disabled="false"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Traslapes</ion-label>
+              <ion-checkbox disabled="false"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Dobleces</ion-label>
+              <ion-checkbox disabled="false"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Amarres</ion-label>
+              <ion-checkbox disabled="false"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Anclajes</ion-label>
+              <ion-checkbox disabled="false"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Calzado</ion-label>
+              <ion-checkbox disabled="false"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Bayoneteo</ion-label>
+              <ion-checkbox disabled="false"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Ubicación de castillos</ion-label>
+              <ion-checkbox disabled="false"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Contraventeo de BAP</ion-label>
+              <ion-checkbox disabled="false"></ion-checkbox>
+            </ion-item>
+          </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-list lines="full" class="ion-no-margin">
+          <ion-list-header lines="full">
+            <h2>Colado:</h2>
+          </ion-list-header>
+          <ion-item>
+            <ion-label>Vibrado (Vibrador obligatorio)</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Espesor de comprensión</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Nivelación</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Acabado</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Curado (Obligatorio) (4hrs)</ion-label>
+            <ion-checkbox disabled="false"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
