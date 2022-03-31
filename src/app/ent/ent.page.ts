@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-ent',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntPage implements OnInit {
 
-  constructor() { }
+  showSkip = true;
+
+  constructor(
+    public navCtrl: NavController,
+    public menuCtrl: MenuController
+  ) { this.menuCtrl.enable(true, 'main-menu'); }
 
   ngOnInit() {
   }

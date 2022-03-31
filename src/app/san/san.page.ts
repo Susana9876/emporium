@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-san',
@@ -6,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./san.page.scss'],
 })
 export class SanPage implements OnInit {
+  showSkip = true;
 
-  constructor() { }
+  constructor(
+    public navCtrl: NavController,
+    public menuCtrl: MenuController
+  ) { this.menuCtrl.enable(true, 'main-menu'); }
 
   ngOnInit() {
   }

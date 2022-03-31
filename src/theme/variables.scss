@@ -82,6 +82,7 @@
 	--ion-color-mycolor-contrast-rgb: 0,0,0;
 	--ion-color-mycolor-shade: #c5cac7;
 	--ion-color-mycolor-tint: #e3e8e5;
+  --ion-color-mycolor-label: #b1b1b1;
 
   
 }
@@ -165,6 +166,8 @@
   .ios body {
     --ion-background-color: #000000;
     --ion-background-color-rgb: 0,0,0;
+    --ion-background-color: #f4f2ff;
+    
 
     --ion-text-color: #ffffff;
     --ion-text-color-rgb: 255,255,255;
@@ -205,6 +208,7 @@
    * Material Design Dark Theme
    * -------------------------------------------
    */
+  
 
   .md body {
     --ion-background-color: #121212;

@@ -1,0 +1,44 @@
+<ion-app>
+  <!--<ion-header class="ion-no-border">
+    <ion-buttons>
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-header>-->
+  <ion-content>
+    <ion-grid>
+      <ion-row class="rowCard">
+        <ion-col size="12">
+          <ion-card size="12" class="cardLogin">
+            <ion-row class="rowLogo">
+              <ion-col>
+                <img class="logoEmpo" src="../assets/img/Logo-emporium.png" alt="">
+              </ion-col>
+            </ion-row>
+            <ion-card-content>
+              <form>
+                <ion-item lines="full">
+                  <ion-label position="floating">Email</ion-label>
+                  <ion-input type="text" required></ion-input>
+                </ion-item>
+                <ion-item lines="full">
+                  <ion-label position="floating">Password</ion-label>
+                  <ion-input type="password" required></ion-input>
+                </ion-item>
+                <ion-row class="rowBu">
+                  <ion-col>
+                    <ion-button type="submit" color="primary" expand="block" routerLink="/codigo-qr" routerDirection="root">Sign In</ion-button>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <a class="small-text">Forgot Password?</a>
+                  </ion-col>
+                </ion-row>
+              </form>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-app>

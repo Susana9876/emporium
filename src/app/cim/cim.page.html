@@ -1,426 +1,1211 @@
-<ion-header>
-  <ion-buttons>
-    <ion-menu-button menu="main-menu"></ion-menu-button>
-  </ion-buttons>
-  <ion-toolbar>
-    <ion-title>Control de verificación de armado de cimentación, firme y revenimientos de concreto</ion-title>
-  </ion-toolbar>
-  <style>
-    ion-col {
-      border: solid 1px #ddd;
-      padding: 10px;
-    }
-  </style>
-</ion-header>
+<ion-app>
+  <ion-header class="ion-no-border">
+    <ion-buttons>
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-header>
+  <ion-content>
+    <ion-toolbar class="toolbar1">
+      <ion-title class="titulo">Control de verificación de armado de cimentación, firme y revenimientos de concreto</ion-title>
+    </ion-toolbar>
+    <hr class="hrHead">
+    <ion-grid>
+      <ion-row class="row1">
+        <ion-col size="2.5">
+          <ion-card class="card1">
+            <ion-card-header>
+              <ion-card-title class="titulo">Avance</ion-card-title>
+              <hr>
+            </ion-card-header>
+            <ion-card-content>
 
-<ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="2">
-        <ion-label>Fraccionamiento</ion-label>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="9.5">
+          <ion-card class="card1">
+            <ion-row class="row2">
+              <ion-col size="2.2" class="col1">
+                <ion-label>Fraccionamiento</ion-label>
+                <ion-label></ion-label>
+              </ion-col>
+              <ion-col size="2.2" class="col1">
+                <ion-label>Prototipo</ion-label>
+                <ion-label></ion-label>
+              </ion-col>
+              <ion-col size="2.2" class="col1">
+                <ion-label>Etapa</ion-label>
+                <ion-label></ion-label>
+              </ion-col>
+              <ion-col size="2.2" class="col1">
+                <ion-label>Manzana y Lote</ion-label>
+                <ion-label></ion-label>
+              </ion-col>
+              <ion-col size="2.2" class="col1">
+                <ion-label>Fecha</ion-label>
+                <ion-input placeholder="Fecha" type="date" class="inputCab"></ion-input>
+              </ion-col>
+            </ion-row>
+            <hr class="hrCab">
+            <ion-row class="row6">
+              <ion-col size="4">
+                <ion-label>Contratista</ion-label>
+              </ion-col>
+              <ion-col size="4">
+                <ion-label>Supervisor de obra</ion-label>
+              </ion-col>
+              <ion-col size="4">
+                <ion-label>Residente de obra</ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row class="row3">
+              <ion-col size="4">
+                <ion-item>
+                  <ion-select [(ngModel)]="selectContratista" interface="popover" placeholder="Elegir opción">
+                    <ion-select-option *ngFor="let contratista of contratistas" [value]="contratista.Nombre">{{contratista.Nombre}}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+              <ion-col size="4">
+                <ion-item>
+                  <ion-select [(ngModel)]="selectSupervisor" interface="popover" placeholder="Elegir opción">
+                    <ion-select-option *ngFor="let supervisor of supervisores" [value]="supervisor.Nombre">{{supervisor.Nombre}}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+              <ion-col size="4">
+                <ion-item>
+                  <ion-select interface="popover">
+                    <ion-select-option value="nes">NES</ion-select-option>
+                    <ion-select-option value="n64">Nintendo64</ion-select-option>
+                    <ion-select-option value="ps">PlayStation</ion-select-option>
+                    <ion-select-option value="genesis">Sega Genesis</ion-select-option>
+                    <ion-select-option value="saturn">Sega Saturn</ion-select-option>
+                    <ion-select-option value="snes">SNES</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-toolbar class="toolbar1">
+      <ion-title class="titulo">Verificación de cimentación</ion-title>
+    </ion-toolbar>
+    <hr class="hrVer">
+    <ion-row class="row4">
+      <ion-col size="6">
+        <ion-card class="card2">
+          <ion-card-header>
+            <ion-card-title class="titulo">Excavación</ion-card-title>
+            <hr>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="6">
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label>Activo</ion-label>
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label>Inactivo</ion-label>
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label >N/A</ion-label>
+              </ion-col>
+            </ion-row>  
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.SeccionMin">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Sección minima de tubo de excavación</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row> 
+            </ion-radio-group>
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.PendienteMinExcavacion">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Pendiente minima del 2%</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
       </ion-col>
-      <ion-col size="2">
-        <ion-label>Prototipo</ion-label>
-            <ion-select interface="popover">
-              <ion-select-option value="nes">NES</ion-select-option>
-              <ion-select-option value="n64">Nintendo64</ion-select-option>
-              <ion-select-option value="ps">PlayStation</ion-select-option>
-              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
-              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
-              <ion-select-option value="snes">SNES</ion-select-option>
-            </ion-select>
-      </ion-col>
-      <ion-col size="2">
-        <ion-label>Etapa</ion-label>
-            <ion-select interface="popover">
-              <ion-select-option value="nes">NES</ion-select-option>
-              <ion-select-option value="n64">Nintendo64</ion-select-option>
-              <ion-select-option value="ps">PlayStation</ion-select-option>
-              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
-              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
-              <ion-select-option value="snes">SNES</ion-select-option>
-            </ion-select>
-      </ion-col>
-      <ion-col size="2">
-        <ion-label>MZ</ion-label>
-            <ion-select interface="popover">
-              <ion-select-option value="nes">NES</ion-select-option>
-              <ion-select-option value="n64">Nintendo64</ion-select-option>
-              <ion-select-option value="ps">PlayStation</ion-select-option>
-              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
-              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
-              <ion-select-option value="snes">SNES</ion-select-option>
-            </ion-select>
-      </ion-col>
-      <ion-col size="2">
-        <ion-label>Lote</ion-label>
-            <ion-select interface="popover">
-              <ion-select-option value="nes">NES</ion-select-option>
-              <ion-select-option value="n64">Nintendo64</ion-select-option>
-              <ion-select-option value="ps">PlayStation</ion-select-option>
-              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
-              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
-              <ion-select-option value="snes">SNES</ion-select-option>
-            </ion-select>
-      </ion-col>
-      <ion-col size="2">
-        <ion-label>Fecha</ion-label>
-            <ion-input type="date"></ion-input>
+      <ion-col size="6">
+        <ion-card class="card2">
+          <ion-card-header>
+            <ion-card-title class="titulo">Instalación, sanitaria y eléctrica</ion-card-title>
+            <hr>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="6">
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label>Activo</ion-label>
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label>Inactivo</ion-label>
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label >N/A</ion-label>
+              </ion-col>
+            </ion-row>  
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.PendienteMinInstalacion">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Pendiente minima de tubo del 2%</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row> 
+            </ion-radio-group>
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.AlimentacionElectrica">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Alimentación eléctrica</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col size="4">
-        <ion-label>Contratista</ion-label>
-            <ion-select interface="popover">
-              <ion-select-option value="nes">NES</ion-select-option>
-              <ion-select-option value="n64">Nintendo64</ion-select-option>
-              <ion-select-option value="ps">PlayStation</ion-select-option>
-              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
-              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
-              <ion-select-option value="snes">SNES</ion-select-option>
-            </ion-select>
+    <ion-row class="row5">
+      <ion-col size="6">
+        <ion-card class="card3">
+          <ion-card-header>
+            <ion-card-title class="titulo">Registros</ion-card-title>
+            <hr>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="6">
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label>Activo</ion-label>
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label>Inactivo</ion-label>
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label >N/A</ion-label>
+              </ion-col>
+            </ion-row>  
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.ForjadoRegistros">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Forjado de registros</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row> 
+            </ion-radio-group>
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.MedidasCanas">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Medidas cañas en registros</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.TapasProvisionales">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Tapas provisionales de resgistros</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.ProfundidadNivel">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Profundidad de nivel de registro</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
       </ion-col>
-      <ion-col size="4">
-        <ion-label>Supervisor de obra</ion-label>
-            <ion-select interface="popover">
-              <ion-select-option value="nes">NES</ion-select-option>
-              <ion-select-option value="n64">Nintendo64</ion-select-option>
-              <ion-select-option value="ps">PlayStation</ion-select-option>
-              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
-              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
-              <ion-select-option value="snes">SNES</ion-select-option>
-            </ion-select>
-      </ion-col>
-      <ion-col size="4">
-        <ion-label>Residente de obra</ion-label>
-            <ion-select interface="popover">
-              <ion-select-option value="nes">NES</ion-select-option>
-              <ion-select-option value="n64">Nintendo64</ion-select-option>
-              <ion-select-option value="ps">PlayStation</ion-select-option>
-              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
-              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
-              <ion-select-option value="snes">SNES</ion-select-option>
-            </ion-select>
+      <ion-col size="6">
+        <ion-card class="card3">
+          <ion-card-header>
+            <ion-card-title class="titulo">Concreto</ion-card-title>
+            <hr>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="6">
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label>Activo</ion-label>
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label>Inactivo</ion-label>
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label>N/A</ion-label>
+              </ion-col>
+            </ion-row>  
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.ConcretoTirado">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Concreto tirado (Obligatorio)</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row>  
+            </ion-radio-group>
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">f"c el concreto</ion-label>
+              </ion-col>
+              <ion-col size="6">
+                <ion-input placeholder="Número" type="number" class="input2" [(ngModel)]="valoresCim.fcConcreto"></ion-input>
+              </ion-col>
+            </ion-row> 
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Cilindro de prueba a 7 días</ion-label>
+              </ion-col>
+              <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.Cilindro7dias">
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-radio-group>
+            </ion-row>
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.Cilindro14dias">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Cilindro de prueba a 14 días</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.Cilindro28dias">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Cilindro de prueba a 28 días</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Revenimiento</ion-label>
+              </ion-col>
+              <ion-col size="6">
+                <ion-input placeholder="Número" type="number" class="input2" [(ngModel)]="valoresCim.Revenimiento"></ion-input>
+              </ion-col>
+            </ion-row> 
+          </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
-  </ion-grid>
-  <ion-grid>
-    <ion-row>
+    <ion-row class="row5">
       <ion-col size="6">
-        <ion-list lines="full" class="ion-no-margin">
-          <ion-list-header lines="full">
-            <h2>Excavación:</h2>
-          </ion-list-header>
-          <ion-item>
-            <ion-label>Sección minima de tubo de excavación:</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Pendiente minima del 2%</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-        </ion-list>
+        <ion-card class="card5">
+          <ion-card-header>
+            <ion-card-title class="titulo">Cimbra</ion-card-title>
+            <hr>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="6">
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label>Activo</ion-label>
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label>Inactivo</ion-label>
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label >N/A</ion-label>
+              </ion-col>
+            </ion-row>  
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.Alineacion">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Alineación</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row> 
+            </ion-radio-group>
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.NivelacionCimbra">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Nivelación</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.Sujecion">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Sujeción</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.ColocacionHule">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Colocación de hule</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.Desmoldante">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Desmoldante</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
       </ion-col>
       <ion-col size="6">
-        <ion-list lines="full" class="ion-no-margin">
-          <ion-list-header lines="full">
-            <h2>Instalación, sanitaria y eléctrica:</h2>
-          </ion-list-header>
-          <ion-item>
-            <ion-label>Pendiente minima de tubo del 2%</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Alimentación eléctrica</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-        </ion-list>
+        <ion-card class="card5">
+          <ion-card-header>
+            <ion-card-title class="titulo">Instalación hidráulica</ion-card-title>
+            <hr>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="6">
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label>Activo</ion-label>
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label>Inactivo</ion-label>
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label>N/A</ion-label>
+              </ion-col>
+            </ion-row>  
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.UbicacionSalidas">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Ubicación de salidas</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row>  
+            </ion-radio-group>
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.RevisionConexiones">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Revisión de conexiones</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row> 
+            </ion-radio-group>
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.DiametrosTuberia">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Diámetros de tuberia</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.TipoTuberia">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Tipo de tuberia</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.PruebaHidraulica">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Prueba hidráulica</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row> 
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col size="6">
-        <ion-list lines="full" class="ion-no-margin">
-          <ion-list-header lines="full">
-            <h2>Registros:</h2>
-          </ion-list-header>
-          <ion-item>
-            <ion-label>Forjado de registros</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Medidas cañas en registros</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Tapas provisionales de resgistros</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Profundidad de nivel de registro</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-        </ion-list>
-      </ion-col>
-      <ion-col size="6">
-        <ion-list lines="full" class="ion-no-margin">
-          <ion-list-header lines="full">
-            <h2>Concreto:</h2>
-          </ion-list-header>
-          <ion-item>
-            <ion-label>Concreto tirado (Obligatorio)</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>f"c el concreto</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Cilindro de prueba a 7 días</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Cilindro de prueba a 14 días</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Cilindro de prueba a 28 días</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-        </ion-list>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="6">
-        <ion-list lines="full" class="ion-no-margin">
-          <ion-list-header lines="full">
-            <h2>Cimbra:</h2>
-          </ion-list-header>
-          <ion-item>
-            <ion-label>Alineación</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Nivelación</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Sujeción</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Colocación de Hule</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Desmoldante</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-        </ion-list>
-      </ion-col>
-      <ion-col size="6">
-        <ion-list lines="full" class="ion-no-margin">
-          <ion-list-header lines="full">
-            <h2>Instalación hidráulica:</h2>
-          </ion-list-header>
-          <ion-item>
-            <ion-label>Ubicación de salidas</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Revisión de conexiones</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Diámetros de tuberia</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Tipo de tuberia</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Prueba hidráulica</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-            <ion-span>INST. GAS</ion-span>
-          </ion-item>
-        </ion-list>
-      </ion-col>
-    </ion-row>
-    <ion-row>
+    <ion-row class="row6">
       <ion-col size="12">
-          <h2 style="text-align: center;">Armado:</h2>
-        </ion-col>
-      </ion-row>
-      <ion-row style="border: solid 1px #ddd;">
-        <ion-col size="3" style="border: none;">
-          <ion-list lines="full" class="ion-no-margin">
-            <ion-item>
-              <ion-label>Tipo de malla</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Trabe en cimentación</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Varillas en trabes</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Estribos en trabes</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Refuerzo en malla</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Armex en castillos</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Refuerzo en castillos</ion-label>
-            </ion-item>
-          </ion-list>
-        </ion-col>
-        <ion-col size="2" style="border: none;">
-          <ion-list lines="full" class="ion-no-margin">
-            <ion-label>Zapata</ion-label>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-          </ion-list>
-        </ion-col>
-        <ion-col size="2" style="border: none;">
-          <ion-list lines="full" class="ion-no-margin">
-            <ion-label>Firme</ion-label>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-          </ion-list>
-        </ion-col>
-        <ion-col size="3" style="border: none;">
-          <ion-list lines="full" class="ion-no-margin">
-            <ion-item>
-              <ion-label>Traslapes</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Dobleces</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Amarres</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Anclajes</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Calzado</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Bayoneteo</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Ubicación de castillos</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Contraventeo de BAP</ion-label>
-            </ion-item>
-          </ion-list>
-        </ion-col>
-        <ion-col size="2" style="border: none;">
-          <ion-list lines="full" class="ion-no-margin">
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-          </ion-list>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="12">
-          <h2 style="text-align: center;">Colado:</h2>
-        </ion-col>
-      </ion-row>
-      <ion-row style="border: solid 1px #ddd;">
-        <ion-col size="6" style="border: none;">
-          <ion-list lines="full" class="ion-no-margin">
-            <ion-item>
-              <ion-label>Vibrado (Vibrador obligatorio)</ion-label>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-label>Espesor de comprensión</ion-label>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-label>Nivelación</ion-label>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-          </ion-list>
-        </ion-col>
-        <ion-col size="6" style="border: none;">
-          <ion-list lines="full" class="ion-no-margin">
-            <ion-item>
-              <ion-label>Acabado</ion-label>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-              <ion-label>Curado (Obligatorio) (4hrs)</ion-label>
-              <ion-checkbox disabled="false"></ion-checkbox>
-            </ion-item>
-          </ion-list>
-        </ion-col>
-      </ion-row>
-  </ion-grid>
-  <ion-button shape="round" color="success">Guardar</ion-button>
-</ion-content>
+        <ion-card class="card6">
+          <ion-card-header>
+            <ion-card-title class="titulo">Armado</ion-card-title>
+            <hr>
+          </ion-card-header>
+          <ion-card-content>
+          <ion-row>
+            <ion-col size="12">
+              <ion-row>
+                <ion-col size="4">
+                </ion-col>
+                <ion-col size="3" class="ion-text-center">
+                  <ion-label class="zaFi">Zapata</ion-label>
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="3" class="ion-text-center">
+                  <ion-label class="zaFi">Firme</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                </ion-col>
+                <ion-col size="1" class="ion-text-center">
+                  <ion-label>Activo</ion-label>
+                </ion-col>
+                <ion-col size="1" class="ion-text-center">
+                  <ion-label>Inactivo</ion-label>
+                </ion-col>
+                <ion-col size="1" class="ion-text-center">
+                  <ion-label>N/A</ion-label>
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1" class="ion-text-center">
+                  <ion-label>Activo</ion-label>
+                </ion-col>
+                <ion-col size="1" class="ion-text-center">
+                  <ion-label>Inactivo</ion-label>
+                </ion-col>
+                <ion-col size="1" class="ion-text-center">
+                  <ion-label>N/A</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-label class="label">Tipo de malla</ion-label>
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.TipoMallaZapata">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+                <ion-col size="1">
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.TipoMallaFirme">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-label class="label">Trabe en cimentación</ion-label>
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.TrabeCimentacionZapata">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+                <ion-col size="1">
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.TrabeCimentacionFirme">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-label class="label">Varillas en trabes</ion-label>
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.VarillasTrabeZapata">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+                <ion-col size="1">
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.VarillasTrabeFirme">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-label class="label">Estribos en trabes</ion-label>
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.EstriboTrabeZapata">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+                <ion-col size="1">
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.EstriboTrabeFirme">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-label class="label">Refuerzo en malla</ion-label>
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.RefuerzoMallaZapata">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+                <ion-col size="1">
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.RefuerzoMallaFirme">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-label class="label">Armex en castillos</ion-label>
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.ArmexCastilloZapata">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+                <ion-col size="1">
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.ArmexCastilloFirme">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-label class="label">Refuerzo en castillos</ion-label>
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.RefuerzoCastilloZapata">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+                <ion-col size="1">
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.RefuerzoCastilloFirme">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                </ion-col>
+                <ion-col size="1" class="ion-text-center">
+                  <ion-label>Activo</ion-label>
+                </ion-col>
+                <ion-col size="1" class="ion-text-center">
+                  <ion-label>Inactivo</ion-label>
+                </ion-col>
+                <ion-col size="1" class="ion-text-center">
+                  <ion-label>N/A</ion-label>
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-label class="label">Traslapes</ion-label>
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.Traslapes">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-label class="label">Dobleces</ion-label>
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.Dobleces">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-label class="label">Amarres</ion-label>
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.Amarres">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-label class="label">Anclajes</ion-label>
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.Anclajes">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-label class="label">Calzado</ion-label>
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.Calzado">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-label class="label">Bayoneteo</ion-label>
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.Bayoneteo">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-label class="label">Ubicación de castillos</ion-label>
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.UbicacionCastillo">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-label class="label">Contraventeo de BAP</ion-label>
+                </ion-col>
+                <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.ContraventeoBAP">
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="1"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="2"></ion-radio>
+                  </ion-col>
+                  <ion-col size="1" class="ion-text-center">
+                    <ion-radio value="3"></ion-radio>
+                  </ion-col>
+                </ion-radio-group>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row5">
+      <ion-col size="6">
+        <ion-card class="card5">
+          <ion-card-header>
+            <ion-card-title class="titulo">Colado</ion-card-title>
+            <hr>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="6">
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label>Activo</ion-label>
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label>Inactivo</ion-label>
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-label >N/A</ion-label>
+              </ion-col>
+            </ion-row>  
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.Vibrado">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Vibrado (Vibrador obligatorio)</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row> 
+            </ion-radio-group>
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Espesor de comprensión</ion-label>
+              </ion-col>
+              <ion-col size="6">
+                <ion-input placeholder="Número" type="number" class="input2" [(ngModel)]="valoresCim.Espesor"></ion-input>
+              </ion-col>
+            </ion-row>
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.NivelacionColado">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Nivelación</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.Acabado">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Acabado</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+            <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresCim.Curado">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Curado (Obligatorio) (4hrs)</ion-label>
+              </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="1"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="2"></ion-radio>
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  <ion-radio value="3"></ion-radio>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card class="card4">
+          <ion-card-header>
+            <ion-card-title class="titulo">Revisión</ion-card-title>
+            <hr>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="5.7" class="firma">
+                <ion-row>
+                  <ion-label>Supervisor</ion-label>
+                </ion-row>
+                <ion-row class="rowFirma">
+                  <ion-col class="colFirma">
+                    <a href="" class="aFirma" routerLink="/firma" routerDirection="root">Click para firmar</a>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col size="5.7" class="firma">
+                <ion-row>
+                  <ion-label>Residente</ion-label>
+                </ion-row >
+                <ion-row class="rowFirma">
+                  <ion-col class="colFirma">
+                    <a href="" class="aFirma" routerLink="/firma" routerDirection="root">Click para firmar</a>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+        <ion-button fill="outline" (click)="verDatos()">
+          Guardar
+          <ion-icon slot="end" name="save-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-content>
+</ion-app>

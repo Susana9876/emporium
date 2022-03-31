@@ -4,12 +4,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'login',
     pathMatch: 'full'
-  },
-  {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
   {
     path: 'trazo',
@@ -40,20 +36,28 @@ const routes: Routes = [
     loadChildren: () => import('./az/az.module').then( m => m.AzPageModule)
   },
   {
-    path: 'imper',
-    loadChildren: () => import('./imper/imper.module').then( m => m.ImperPageModule)
-  },
-  {
-    path: 'elec',
-    loadChildren: () => import('./elec/elec.module').then( m => m.ElecPageModule)
-  },
-  {
-    path: 'terminacion',
-    loadChildren: () => import('./terminacion/terminacion.module').then( m => m.TerminacionPageModule)
-  },
-  {
     path: 'vf',
     loadChildren: () => import('./vf/vf.module').then( m => m.VfPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'enla',
+    loadChildren: () => import('./enla/enla.module').then( m => m.EnlaPageModule)
+  },
+  {
+    path: 'prc',
+    loadChildren: () => import('./prc/prc.module').then( m => m.PrcPageModule)
+  },
+  {
+    path: 'firma',
+    loadChildren: () => import('./firma/firma.module').then( m => m.FirmaPageModule)
+  },
+  {
+    path: 'codigo-qr',
+    loadChildren: () => import('./codigo-qr/codigo-qr.module').then( m => m.CodigoQRPageModule)
   }
 ];
 

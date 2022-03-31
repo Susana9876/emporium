@@ -1,197 +1,370 @@
-<ion-header>
-  <ion-buttons>
-    <ion-menu-button menu="main-menu"></ion-menu-button>
-  </ion-buttons>
-  <ion-toolbar>
-    <ion-title>Control de recepción de plataformas y verificación de trazo</ion-title>
-  </ion-toolbar>
-  <style>
-    ion-col {
-      border: solid 1px #ddd;
-      padding: 10px;
-    }
-  </style>
-</ion-header>
-
-<ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="2">
-        <ion-label>Fraccionamiento</ion-label>
-      </ion-col>
-      <ion-col size="2">
-        <ion-label>Prototipo</ion-label>
-            <ion-select interface="popover">
-              <ion-select-option value="nes">NES</ion-select-option>
-              <ion-select-option value="n64">Nintendo64</ion-select-option>
-              <ion-select-option value="ps">PlayStation</ion-select-option>
-              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
-              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
-              <ion-select-option value="snes">SNES</ion-select-option>
-            </ion-select>
-      </ion-col>
-      <ion-col size="2">
-        <ion-label>Etapa</ion-label>
-            <ion-select interface="popover">
-              <ion-select-option value="nes">NES</ion-select-option>
-              <ion-select-option value="n64">Nintendo64</ion-select-option>
-              <ion-select-option value="ps">PlayStation</ion-select-option>
-              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
-              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
-              <ion-select-option value="snes">SNES</ion-select-option>
-            </ion-select>
-      </ion-col>
-      <ion-col size="2">
-        <ion-label>MZ</ion-label>
-            <ion-select interface="popover">
-              <ion-select-option value="nes">NES</ion-select-option>
-              <ion-select-option value="n64">Nintendo64</ion-select-option>
-              <ion-select-option value="ps">PlayStation</ion-select-option>
-              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
-              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
-              <ion-select-option value="snes">SNES</ion-select-option>
-            </ion-select>
-      </ion-col>
-      <ion-col size="2">
-        <ion-label>Lote</ion-label>
-            <ion-select interface="popover">
-              <ion-select-option value="nes">NES</ion-select-option>
-              <ion-select-option value="n64">Nintendo64</ion-select-option>
-              <ion-select-option value="ps">PlayStation</ion-select-option>
-              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
-              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
-              <ion-select-option value="snes">SNES</ion-select-option>
-            </ion-select>
-      </ion-col>
-      <ion-col size="2">
-        <ion-label>Fecha</ion-label>
-            <ion-input type="date"></ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="4">
-        <ion-label>Contratista</ion-label>
-            <ion-select interface="popover">
-              <ion-select-option value="nes">NES</ion-select-option>
-              <ion-select-option value="n64">Nintendo64</ion-select-option>
-              <ion-select-option value="ps">PlayStation</ion-select-option>
-              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
-              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
-              <ion-select-option value="snes">SNES</ion-select-option>
-            </ion-select>
-      </ion-col>
-      <ion-col size="4">
-        <ion-label>Supervisor de obra</ion-label>
-            <ion-select interface="popover">
-              <ion-select-option value="nes">NES</ion-select-option>
-              <ion-select-option value="n64">Nintendo64</ion-select-option>
-              <ion-select-option value="ps">PlayStation</ion-select-option>
-              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
-              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
-              <ion-select-option value="snes">SNES</ion-select-option>
-            </ion-select>
-      </ion-col>
-      <ion-col size="4">
-        <ion-label>Residente de obra</ion-label>
-            <ion-select interface="popover">
-              <ion-select-option value="nes">NES</ion-select-option>
-              <ion-select-option value="n64">Nintendo64</ion-select-option>
-              <ion-select-option value="ps">PlayStation</ion-select-option>
-              <ion-select-option value="genesis">Sega Genesis</ion-select-option>
-              <ion-select-option value="saturn">Sega Saturn</ion-select-option>
-              <ion-select-option value="snes">SNES</ion-select-option>
-            </ion-select>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="6">
-      <ion-list lines="full" class="ion-no-margin">
-          <ion-list-header lines="full">
-            <h2>Trazo</h2>
-          </ion-list-header>
-          <ion-item>
-            <ion-label>Puntos manzaneros</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Lotificación</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Puntos de radio</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Escuadras</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Puntos manzaneros</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Lotificación</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-        </ion-list>
-        </ion-col>
-      <ion-col size="6">
-        <ion-list lines="full" class="ion-no-margin">
-          <ion-list-header lines="full">
-            <h2>Nivelación</h2>
-          </ion-list-header>
-          <ion-item>
-            <ion-label>Puntos de control</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Niveles plataforma</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Nivel guarnición</ion-label>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-        </ion-list>
-      </ion-col>
-    </ion-row>
-  <ion-row>
-      <ion-col size="6">
-        <ion-list lines="full" class="ion-no-margin">
-          <ion-list-header lines="full">
-            <h2>Instalaciones</h2>
-          </ion-list-header>
-          <ion-item>
-            <ion-label>Tomas domiciliarias</ion-label>
-            <ion-input placeholder="text"></ion-input>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Descargas sanitarias</ion-label>
-            <ion-input placeholder="text"></ion-input>
-            <ion-checkbox disabled="false"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Acometidas electricas</ion-label>
-            <ion-input placeholder="text"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label>Gas natural</ion-label>
-            <ion-input placeholder="text"></ion-input>
-          </ion-item>
-        </ion-list>
-      </ion-col>
-      <ion-col size="6">
-        <ion-list lines="full" class="ion-no-margin">
-          <ion-list-header lines="full">
-            <h2>Croquis esquemático</h2>
-          </ion-list-header>
-        </ion-list>
-      </ion-col>
-  </ion-row>
-</ion-grid>
-<ion-button shape="round" slot="end" color="success">Guardar</ion-button>
-</ion-content>
+<ion-app>
+    <ion-header class="ion-no-border">
+      <ion-buttons>
+        <ion-menu-button menu="main-menu"></ion-menu-button>
+      </ion-buttons>
+    </ion-header>
+    <ion-content>
+      <ion-toolbar class="toolbar1">
+        <ion-title class="titulo">Control de recepción de plataformas y verificación de trazo</ion-title>
+      </ion-toolbar>
+      <hr class="hrHead">
+      <ion-grid>
+        <ion-row class="row1">
+          <ion-col size="2.5">
+            <ion-card class="card1">
+              <ion-card-header>
+                <ion-card-title class="titulo">Avance</ion-card-title>
+                <hr>
+              </ion-card-header>
+              <ion-card-content>
+                
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="9.5">
+            <ion-card class="card1">
+              <ion-row class="row2">
+                <ion-col size="2.2" class="col1">
+                  <ion-label>Fraccionamiento</ion-label>
+                  <ion-label></ion-label>
+                </ion-col>
+                <ion-col size="2.2" class="col1">
+                  <ion-label>Prototipo</ion-label>
+                  <ion-label></ion-label>
+                </ion-col>
+                <ion-col size="2.2" class="col1">
+                  <ion-label>Etapa</ion-label>
+                  <ion-input placeholder="Etapa" type="number" class="inputCab"></ion-input>
+                </ion-col>
+                <ion-col size="2.2" class="col1">
+                  <ion-label>Manzana y Lote</ion-label>
+                  <ion-label></ion-label>
+                </ion-col>
+                <ion-col size="2.2" class="col1">
+                  <ion-label>Fecha</ion-label>
+                  <ion-input placeholder="Fecha" type="date" class="inputCab"></ion-input>
+                </ion-col>
+              </ion-row>
+              <hr class="hrCab">
+              <ion-row class="row6">
+                <ion-col size="4">
+                  <ion-label>Contratista</ion-label>
+                </ion-col>
+                <ion-col size="4">
+                  <ion-label>Supervisor de obra</ion-label>
+                </ion-col>
+                <ion-col size="4">
+                  <ion-label>Residente de obra</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row class="row3">
+                <ion-col size="4">
+                  <ion-item>
+                    <ion-select [(ngModel)]="selectContratista" interface="popover" placeholder="Elegir opción"> 
+                      <ion-select-option *ngFor="let contratista of contratistas" [value]="contratista.Nombre">{{contratista.Nombre}}</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+                <ion-col size="4">
+                  <ion-item>
+                    <ion-select [(ngModel)]="selectSupervisor" interface="popover" placeholder="Elegir opción">
+                      <ion-select-option *ngFor="let supervisor of supervisores" [value]="supervisor.Nombre">{{supervisor.Nombre}}</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+                <ion-col size="4">
+                  <ion-item>
+                    <ion-select interface="popover">
+                      <ion-select-option value="nes">NES</ion-select-option>
+                      <ion-select-option value="n64">Nintendo64</ion-select-option>
+                      <ion-select-option value="ps">PlayStation</ion-select-option>
+                      <ion-select-option value="genesis">Sega Genesis</ion-select-option>
+                      <ion-select-option value="saturn">Sega Saturn</ion-select-option>
+                      <ion-select-option value="snes">SNES</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+        <ion-toolbar class="toolbar1">
+          <ion-title class="titulo">Plataformas</ion-title>
+        </ion-toolbar>
+        <hr class="hrPla">
+        <ion-row class="row4">
+          <ion-col size="6">
+            <ion-card class="card2">
+              <ion-card-header>
+                <ion-card-title class="titulo">Trazo</ion-card-title>
+                <hr>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-row>
+                  <ion-col size="6">
+                  </ion-col>
+                  <ion-col size="2" class="ion-text-center">
+                    <ion-label>Activo</ion-label>
+                  </ion-col>
+                  <ion-col size="2" class="ion-text-center">
+                    <ion-label>Inactivo</ion-label>
+                  </ion-col>
+                  <ion-col size="2" class="ion-text-center">
+                    <ion-label >N/A</ion-label>
+                  </ion-col>
+                </ion-row>  
+                <ion-row>
+                  <ion-col size="6">
+                    <ion-label class="label">Puntos Manzaneros</ion-label>
+                  </ion-col>
+                  <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresTrazo.PuntosManzaneros">
+                    <ion-col size="2" class="ion-text-center">
+                      <ion-radio value=1></ion-radio>
+                    </ion-col>
+                    <ion-col size="2" class="ion-text-center">
+                      <ion-radio value=2></ion-radio>
+                    </ion-col>
+                    <ion-col size="2" class="ion-text-center">
+                      <ion-radio value=3></ion-radio>
+                    </ion-col>
+                  </ion-radio-group>
+                </ion-row> 
+                <ion-row>
+                  <ion-col size="6">
+                    <ion-label class="label">Lotificación</ion-label>
+                  </ion-col>
+                  <ion-radio-group allowEmptySelection="true"[(ngModel)]="valoresTrazo.Lotificacion">
+                    <ion-col size="2" class="ion-text-center">
+                      <ion-radio value=1></ion-radio>
+                    </ion-col>
+                    <ion-col size="2" class="ion-text-center">
+                      <ion-radio value=2></ion-radio>
+                    </ion-col>
+                    <ion-col size="2" class="ion-text-center">
+                      <ion-radio value=3></ion-radio>
+                    </ion-col>
+                  </ion-radio-group>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="6">
+                    <ion-label class="label">Puntos de radio</ion-label>
+                  </ion-col>
+                  <ion-radio-group allowEmptySelection="true"[(ngModel)]="valoresTrazo.PuntosRadio">
+                    <ion-col size="2" class="ion-text-center">
+                      <ion-radio value="1"></ion-radio>
+                    </ion-col>
+                    <ion-col size="2" class="ion-text-center">
+                      <ion-radio value="2"></ion-radio>
+                    </ion-col>
+                    <ion-col size="2" class="ion-text-center">
+                      <ion-radio value="3"></ion-radio>
+                    </ion-col>
+                  </ion-radio-group>
+                </ion-row>  
+                <ion-row>
+                  <ion-col size="6">
+                    <ion-label class="label">Escuadras</ion-label>
+                  </ion-col>
+                  <ion-radio-group allowEmptySelection="true" [(ngModel)]="valoresTrazo.Escuadras">
+                    <ion-col size="2" class="ion-text-center">
+                      <ion-radio value="1"></ion-radio>
+                    </ion-col>
+                    <ion-col size="2" class="ion-text-center">
+                      <ion-radio value="2"></ion-radio>
+                    </ion-col>
+                    <ion-col size="2" class="ion-text-center">
+                      <ion-radio value="3"></ion-radio>
+                    </ion-col>
+                  </ion-radio-group>
+                </ion-row> 
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6">
+            <ion-card class="card2">
+              <ion-card-header>
+                <ion-card-title class="titulo">Instalaciones</ion-card-title>
+                <hr>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-label class="labelNada">No hay nada</ion-label>
+                  </ion-col>
+                </ion-row>  
+                <ion-row>
+                  <ion-col size="5">
+                    <ion-label class="label">Tomas domiciliarias</ion-label>
+                  </ion-col>
+                  <ion-col size="7">
+                    <ion-input placeholder="Descripción" type="text" class="input2" [(ngModel)]="valoresTrazo.TomasDomiciliarias"></ion-input>
+                  </ion-col>
+                </ion-row> 
+                <ion-row>
+                  <ion-col size="5">
+                    <ion-label class="label">Descargas sanitarias</ion-label>
+                  </ion-col>
+                  <ion-col size="7">
+                    <ion-input placeholder="Descripción" type="text" class="input2" [(ngModel)]="valoresTrazo.DescargasSanitarias"></ion-input>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="5">
+                    <ion-label class="label">Acometidas eléctricas</ion-label>
+                  </ion-col>
+                  <ion-col size="7">
+                    <ion-input placeholder="Descripción" type="text" class="input2" [(ngModel)]="valoresTrazo.AcometidasElectricas"></ion-input>
+                  </ion-col>
+                </ion-row>  
+                <ion-row>
+                  <ion-col size="5">
+                    <ion-label class="label">Gas natural</ion-label>
+                  </ion-col>
+                  <ion-col size="7">
+                    <ion-input placeholder="Descripción" type="text" class="input2" [(ngModel)]="valoresTrazo.GasNatural"></ion-input>
+                  </ion-col>
+                </ion-row> 
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row class="row5">
+          <ion-col size="6">
+            <ion-card class="card3">
+              <ion-card-header>
+                <ion-card-title class="titulo">Nivelación</ion-card-title>
+                <hr>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-row>
+                  <ion-col size="6">
+                    <ion-label class="label">Puntos de control</ion-label>
+                  </ion-col>
+                  <ion-col size="6">
+                    <ion-input placeholder="Número" type="number" class="input2" [(ngModel)]="valoresTrazo.PuntosControl"></ion-input>
+                  </ion-col>
+                </ion-row> 
+                <ion-row>
+                  <ion-col size="6">
+                    <ion-label class="label">Niveles plataforma</ion-label>
+                  </ion-col>
+                  <ion-col size="6">
+                    <ion-input placeholder="Número" type="number" class="input2" [(ngModel)]="valoresTrazo.NivelesPlataforma"></ion-input>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="6">
+                  </ion-col>
+                  <ion-col size="2" class="ion-text-center">
+                    <ion-label>Activo</ion-label>
+                  </ion-col>
+                  <ion-col size="2" class="ion-text-center">
+                    <ion-label>Inactivo</ion-label>
+                  </ion-col>
+                  <ion-col size="2" class="ion-text-center">
+                    <ion-label>N/A</ion-label>
+                  </ion-col>
+                </ion-row>  
+                <ion-row>
+                  <ion-col size="6">
+                    <ion-label class="label">Nivel guarnición</ion-label>
+                  </ion-col>
+                  <ion-radio-group  allowEmptySelection="true" [(ngModel)]="valoresTrazo.NivelGuarnicion">
+                    <ion-col size="2" class="ion-text-center">
+                      <ion-radio value="1"></ion-radio>
+                    </ion-col>
+                    <ion-col size="2" class="ion-text-center">
+                      <ion-radio value="2"></ion-radio>
+                    </ion-col>
+                    <ion-col size="2" class="ion-text-center">
+                      <ion-radio value="3"></ion-radio>
+                    </ion-col>
+                  </ion-radio-group>
+                </ion-row> 
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6">
+            <ion-card class="card3">
+              <ion-card-header>
+                <ion-card-title class="titulo">Evidencia (Insertar imagen o video)</ion-card-title>
+                <hr> 
+              </ion-card-header>
+              <ion-card-content>
+                <ion-row>
+                  <ion-col size="6">
+                    <ion-label><a href="">SUBIR DESDE DISPOSITIVO</a></ion-label>
+                  </ion-col>
+                  <ion-col size="6">
+                    <ion-label><a href="">CÁMARA</a></ion-label>
+                  </ion-col>
+                </ion-row>   
+                <ion-row>
+                  <ion-col size="12" class="evidencia">
+                    <ion-grid>
+                      <ion-row class="rowEvi">
+                        <ion-col size="12" class="colEvi">
+                          <img class="image" src="../assets/img/image.svg">
+                        </ion-col>
+                      </ion-row>
+                      <ion-row class="rowEvi">
+                        <ion-col size="12" class="colEvi">
+                          <ion-button href="https://photos.google.com/" target="_blank">Examinar</ion-button>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row class="rowEvi">
+                        <ion-col size="12" class="colEvi">
+                          <ion-label class="labelEvi">Peso Máximo: 20MB</ion-label>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-col>
+                </ion-row>  
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row class="row5">
+          <ion-col size="6">
+            <ion-card class="card4">
+              <ion-card-header>
+                <ion-card-title class="titulo">Revisión</ion-card-title>
+                <hr>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-row>
+                  <ion-col size="5.7" class="firma">
+                    <ion-row>
+                      <ion-label>Supervisor</ion-label>
+                    </ion-row>
+                    <ion-row class="rowFirma">
+                      <ion-col class="colFirma">
+                        <a href="" class="aFirma" routerLink="/firma" routerDirection="root">Click para firmar</a>
+                      </ion-col>
+                    </ion-row>
+                  </ion-col>
+                  <ion-col size="5.7" class="firma">
+                    <ion-row>
+                      <ion-label>Residente</ion-label>
+                    </ion-row >
+                    <ion-row class="rowFirma">
+                      <ion-col class="colFirma">
+                        <a href="" class="aFirma" routerLink="/firma" routerDirection="root">Click para firmar</a>
+                      </ion-col>
+                    </ion-row>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button fill="outline" type="submit" (click)="verDatos()">
+              Guardar
+              <ion-icon slot="end" name="save-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+    </ion-content>
+  </ion-app>

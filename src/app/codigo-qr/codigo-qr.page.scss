@@ -1,0 +1,56 @@
+ion-content{
+    --background: var(--ion-background-color, #f4f2ff);
+}
+ion-header{
+    --background: var(--ion-background-color, #f4f2ff);
+}
+
+ion-toolbar{
+    --background: var(--ion-background-color, #f4f2ff);
+}
+
+.titulo{ 
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: medium;
+    color: black
+}
+
+.toolbar1{
+    margin: 0 25px 0 25px;
+}
+
+.rowCard{
+    margin: 100px auto 100px auto;
+    width: 500px;
+}
+
+.cardLogin{
+    height: 450px;
+}
+
+hr {
+    background-color:#b1b1b1;
+    margin-right: 1px;
+    margin-left: 1px;
+}
+
+.rowBu{
+    margin-top: 20px;
+}
+
+ion-label{
+    font-size: small;
+    color: #0d68f8;
+    font-weight: bold;
+}
+
+.logoEmpo{
+    width: 130px;
+    height: 130px;
+}
+
+.rowLogo{
+    text-align: center;
+    margin-top: 20px;
+}

@@ -1,23 +1,26 @@
 import { Component } from '@angular/core';
+import { LoginPage } from './login/login.page';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  rootPage: any = LoginPage;
   public appPages = [
     { title: 'Trazo', url: 'trazo', icon: 'pencil' },
-    { title: 'Sanitaria', url: 'san', icon: 'funnel' },
-    { title: 'Hidráulica', url: 'hid', icon: 'trending-up' },
-    { title: 'Cimentación', url: 'cim', icon: 'leaf' },
-    { title: 'Castillos', url: 'cas', icon: 'cog' },
-    { title: 'Entrepiso', url: 'ent', icon: 'hammer' },
-    { title: 'Azotea', url: 'az', icon: 'magnet' },
-    { title: 'Impermeabilización', url: 'imper', icon: 'checkmark-circle' },
-    { title: 'Eléctrica', url: 'elec', icon: 'flash' },
-    { title: 'Terminación', url: 'terminacion', icon: 'home' },
-    { title: 'Vivienda terminada', url: 'vf', icon: 'happy' },
+    { title: 'Sanitaria', url: 'san', icon: 'sparkles' },
+    { title: 'Hidráulica', url: 'hid', icon: 'water' },
+    { title: 'Cimentación', url: 'cim', icon: 'hammer' },
+    { title: 'Muros y Castillos', url: 'cas', icon: 'business' },
+    { title: 'Losa de Entrepiso', url: 'ent', icon: 'build' },
+    { title: 'Losa de Azotea', url: 'az', icon: 'cloud' },
+    { title: 'Enladrillado', url: 'enla', icon: 'checkmark' },
+    { title: 'Pruebas de calidad', url: 'prc', icon: 'star' },
+    { title: 'VF', url: 'vf', icon: 'flash' },
   ];
   /*public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];*/
-  constructor() {}
+  constructor(
+  ) {}
+
 }

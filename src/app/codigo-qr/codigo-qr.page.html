@@ -1,0 +1,34 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar class="toolbar1">
+      <ion-title class="titulo">Inserta la clave de la ubicación</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-grid>
+      <ion-row class="rowCard">
+        <ion-col size="12">
+          <ion-card size="12" class="cardLogin">
+            <ion-row class="rowLogo">
+              <ion-col>
+                <img class="logoEmpo" src="../assets/img/Logo-emporium.png" alt="">
+              </ion-col>
+            </ion-row>
+            <ion-card-content>
+                <ion-item lines="full">
+                  <ion-label position="floating">Clave Ubicación</ion-label>
+                  <ion-input type="text" [(ngModel)]="formatoInfo.Id_Fraccionamiento"></ion-input>
+                </ion-item>
+                <ion-row class="rowBu">
+                  <ion-col>
+                    <ion-button type="submit" color="primary" expand="block" (click)="Consulta()">Registrar</ion-button>
+                  </ion-col>
+                </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-app>
